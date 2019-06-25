@@ -54,21 +54,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pooh" translatesAutoresizingMaskIntoConstraints="NO" id="DNA-QY-NPS">
-                                <rect key="frame" x="20" y="57" width="334" height="417"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nye-9b-520">
-                                <rect key="frame" x="68" y="541" width="238" height="59"/>
+                                <rect key="frame" x="76" y="536" width="223" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Lets Get Started!  &gt;&gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lDB-S7-IRu" kind="show" id="VvO-Xh-K4g"/>
+                                    <segue destination="gOt-W2-ZJO" kind="show" id="oJn-HK-y5Z"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pooh" translatesAutoresizingMaskIntoConstraints="NO" id="DNA-QY-NPS">
+                                <rect key="frame" x="20" y="44" width="334" height="417"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.13701260089874268" green="0.37136128544807434" blue="0.43664896488189697" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.89173150062561035" green="0.66713535785675049" blue="0.9263579249382019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,7 +82,7 @@
         <!--Add New Photo-->
         <scene sceneID="COQ-kk-yHm">
             <objects>
-                <viewController id="rnS-sK-rpS" sceneMemberID="viewController">
+                <viewController id="rnS-sK-rpS" customClass="AddPhotoViewController" customModule="ShiruiViewfinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eKo-S2-eCT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,21 +92,30 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="takePhotoTapped:" destination="TgX-B5-guz" eventType="touchUpInside" id="T8g-vq-FZD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-YB-BQn">
                                 <rect key="frame" x="140" y="510" width="94" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Library"/>
+                                <connections>
+                                    <action selector="photoLibraryTapped:" destination="TgX-B5-guz" eventType="touchUpInside" id="CJy-7z-fVU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbz-Bv-SE8">
                                 <rect key="frame" x="265" y="508" width="94" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Albums"/>
+                                <connections>
+                                    <action selector="albumTapped:" destination="TgX-B5-guz" eventType="touchUpInside" id="Ard-Kj-nT2"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cam3" translatesAutoresizingMaskIntoConstraints="NO" id="y2E-pX-paA">
-                                <rect key="frame" x="67" y="224" width="240" height="128"/>
+                                <rect key="frame" x="67" y="171" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -114,10 +123,14 @@
                         <viewLayoutGuide key="safeArea" id="Jip-IJ-Jb3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="7Pw-VK-JGu"/>
+                    <connections>
+                        <outlet property="imageView" destination="y2E-pX-paA" id="Knc-zG-hmG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tly-X3-0QT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TgX-B5-guz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1811.594202898551" y="58.928571428571423"/>
+            <point key="canvasLocation" x="1810.4000000000001" y="58.374384236453203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u9W-gr-qeU">
@@ -142,7 +155,4 @@
         <image name="cam3" width="852" height="480"/>
         <image name="pooh" width="225" height="225"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="VvO-Xh-K4g"/>
-    </inferredMetricsTieBreakers>
 </document>
